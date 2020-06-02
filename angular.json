@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tp4-canio"
+    }
+  },
+  "defaultProject": "tp4-canio",
+  "cli": {
+    "analytics": false
+  }
 }
