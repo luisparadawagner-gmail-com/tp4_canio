@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-libreria',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibreriaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder){}
 
   ngOnInit(): void {
   }
+
+    nombreControl = new FormControl('Book');
+
+   
+    libroForm = this.fb.group({
+        titulo : ['', Validators.required],
+        editorial : [''],
+        autori : [''],
+        codigo : ['', Validators.required]
+    });
+
+    submit(){
+      debugger;
+      this.libroForm.value;
+    }
 
 }
