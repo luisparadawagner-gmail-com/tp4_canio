@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-libreria',
@@ -8,18 +11,21 @@ import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray }
 })
 export class LibreriaComponent implements OnInit {
 
-  constructor(private fb: FormBuilder){}
+  
+
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute){}
+
 
   ngOnInit(): void {
   }
-
-    nombreControl = new FormControl('Book');
+    
+  nombreControl = new FormControl('Book');
 
    
     libroForm = this.fb.group({
-        titulo : ['', Validators.required],
+        titulo : [, Validators.required],
         editorial : [''],
-        autori : [''],
+        autor : [''],
         codigo : ['', Validators.required]
     });
 

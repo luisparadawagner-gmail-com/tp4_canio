@@ -9,13 +9,12 @@ const routes: Routes = [
 
 // CONSULTAR
 
-  { path: 'libros-component', 
-    component: LibrosComponent },
-  { path: 'planilla-component',
-    component: PlanillaComponent,
+  { path: 'libros-component', component: LibrosComponent },
+  { path: 'planilla-component', component: PlanillaComponent },
+  { path: 'libreria-component', component: LibreriaComponent }
 
-  },
   
+  //cuando el path está vacío, redirecciona a 'planilla-component'
   //{ path: '', redirectTo: 'planilla-component', pathMatch: 'full' },
   //{ path: '**', component: PlanillaComponent } //entra cuando no coincide ninguna ruta
   

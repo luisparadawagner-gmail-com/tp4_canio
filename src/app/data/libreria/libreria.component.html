@@ -1,22 +1,27 @@
-<h1> Formulario Libro</h1>
+<h1>Librería</h1>
+<h2>Libro Cargado</h2>
+
 
 <form [formGroup]="libroForm" (ngSubmit)=submit()>
-    <label>Título
-    <input type="text" formControlName="titulo">
-    </label>
-    <label>Editorial
-        <input type="text" formControlName="editorial">
-    </label>
-    <br>
-    <label>Autor
-        <input type="text" formControlName="autor">
-    </label>
-    <label>Código de serie
-        <input type="number" formControlName="codigo">
-    </label>
+    <div class="libroDatos">
+        <label>Título
+        <input type="text" formControlName="titulo" >
+        </label>
+        <label>Editorial
+            <input type="text" formControlName="editorial">
+        </label>
+        <br>
+        <label>Autor
+            <input type="text" formControlName="autor">
+        </label>
+        <label>Código de serie
+            <input type="number" formControlName="codigo">
+        </label>
+    </div>
 
 
     Status Formulario: {{libroForm.status}}
     <button type="submit">Guardar</button>
+
     
 </form>

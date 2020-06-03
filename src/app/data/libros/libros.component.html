@@ -3,6 +3,7 @@
 
 
 <form [formGroup]="libroForm" (ngSubmit)=submit()>
+<div class="libroDatos">
     <label>Título
     <input type="text" formControlName="titulo">
     </label>
@@ -17,8 +18,12 @@
         <input type="number" formControlName="codigo">
     </label>
 
+</div>
+
 
     Status Formulario: {{libroForm.status}}
-    <button type="submit" (click)="eventBinding">Guardar</button>
+ 
+    <button type="submit" [routerLink]="['/libreria-component', libroForm.value]">Guardar</button>
+
 
 </form>
