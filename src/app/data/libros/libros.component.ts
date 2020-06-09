@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { threadId } from 'worker_threads';
+import { LibraryBook } from './../clases/Libro';
 
 @Component({
   selector: 'app-libros',
@@ -11,8 +11,12 @@ import { threadId } from 'worker_threads';
 export class LibrosComponent implements OnInit {
 
 
-  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute){}
+  constructor(private fb: FormBuilder){}
 
+  libro : LibraryBook;
+
+  showLibreria : boolean = false;
+  showLibro : boolean = true;
   
   ngOnInit(): void {
     
@@ -20,18 +24,21 @@ export class LibrosComponent implements OnInit {
   
   nombreControl = new FormControl('Book');
 
-  //listarLibro: any[]
      
     libroForm = this.fb.group({
         titulo : ['', Validators.required],
         editorial : [''],
-        autori : [''],
+        autor : [''],
         codigo : ['', Validators.required]
     });
 
     submit(){
       debugger;
       this.libroForm.value;
+      this.libro = this.libroForm.value;
+
+      this.showLibreria = true;
+      this.showLibro = false;
       
     }
 

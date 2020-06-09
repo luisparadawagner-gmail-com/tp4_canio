@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table' ;
+import { MatTableDataSource } from '@angular/material/table' ;
+import { LibraryBook } from '../clases/Libro';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-planilla',
@@ -9,28 +11,42 @@ import {MatTableDataSource} from '@angular/material/table' ;
 })
 
 export class PlanillaComponent implements OnInit{
+  
+  @Output() equipoHijoEvento = new EventEmitter<string>();
 
-  //shownColumns: string [] = [ 'title' , 'editorial' , 'author' , 'serialNumber' ];
-  displayedColumns: string [] = [ 'title' , 'editorial' , 'author' , 'serialNumber' ];
+  displayedColumns: string [] = [ 'title' , 'editorial' , 'author' , 'serialNumber', 'modificar'];
   dataSource = new MatTableDataSource <LibraryBook> (ELEMENT_DATA);
-  //dataSource = ELEMENT_DATA;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  //@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
-   this.dataSource.paginator = this.paginator;
+   //this.dataSource.paginator = this.paginator
   }
-}
 
-export interface LibraryBook {
-  title: string;
-  editorial: string;
-  author: string;
-  serialNumber: number;
-}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
+  goToLibreria() {		
+    this.router.navigate(["/libreria-component"]);
+  }
+
+}
 const ELEMENT_DATA: LibraryBook[] = [
-  {title: 'House of Furies' , editorial: 'VRYA', author: 'Madeleine Roux', serialNumber: 9789877472875},
-  {title: 'El Archivo', editorial: 'DESTINO', author: 'Victoria Schwab', serialNumber: 9789507323171},
+  {
+    titulo: 'House of Furies',
+    editorial: 'VRYA',
+    autor: 'Madeleine Roux',
+    codigo: 9789877472875
+  },
+  {
+    titulo: 'El Archivo',
+    editorial: 'DESTINO',
+    autor: 'Victoria Schwab',
+    codigo: 9789507323171
+  },
+  {
+    titulo: 'Black Paradox',
+    editorial: 'IVREA',
+    autor: 'Junji Ito',
+    codigo: 9788417777395
+  }
 ];
-

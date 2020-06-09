@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 
+import {MatButtonModule} from '@angular/material/button';
+
 import { AppComponent } from './app.component';
 
 import { LibreriaComponent } from './data/libreria/libreria.component';
@@ -30,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatTableModule,
     MatMenuModule,
+    MatButtonModule,
     BrowserAnimationsModule
   ],
   providers: [],

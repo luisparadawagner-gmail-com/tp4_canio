@@ -6,3 +6,7 @@ table td {
     text-align: center;
     caption-side: top;
 }
+
+table {
+    width: 50%;
+  }
