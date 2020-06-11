@@ -10,25 +10,36 @@ import { LibraryBook } from './../clases/Libro';
   styleUrls: ['./libreria.component.css']
 })
 export class LibreriaComponent implements OnInit {
-
   
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute){}
 
   @Input() libreria : LibraryBook; 
 
   libroForm : FormGroup;
+  param : any;
+
+  libro : LibraryBook;
 
   ngOnInit(): void {
     debugger;
-    //let libroPrueba = this.libreria;
-    this.initForm (this.libreria);
+
+    this.param = this.route.snapshot.params;
+
+    if(Object.keys(this.param).length){
+      this.libro = this.param;
+    }else{
+      this.libro = this.libreria;
+    }
+
+    // Comunicación de Componente 'A' a 'B'
+    this.initForm (this.libro);
   }
     
   nombreControl = new FormControl('Book');
 
    initForm (libreria : LibraryBook){
      debugger;
-    this.libroForm = this.fb.group({
+     this.libroForm = this.fb.group({
         titulo : [libreria.titulo, Validators.required],
         editorial : [libreria.editorial],
         autor : [libreria.autor],
@@ -39,7 +50,6 @@ export class LibreriaComponent implements OnInit {
 
     submit(){
       debugger;
-      this.libroForm.value;
     }
 
 }

@@ -1,6 +1,8 @@
-export interface LibraryBook {
-		titulo: string,
-		editorial: string,
-        autor: string,
-        codigo: number   
+export class LibraryBook {
+    constructor(
+		public titulo: string,
+		public editorial: string,
+        public autor: string,
+        public codigo: number   
+    ){}
 }
